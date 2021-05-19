@@ -10,7 +10,7 @@
 
 var app = new Vue (
     {
-        el:"#root",
+        el : "#root",
         data :
             {
                 toDoList : [
@@ -31,17 +31,26 @@ var app = new Vue (
                         completed : false
                     }
                 ],
-            newTask: "",  
+                newTask : "",  
             },
-            methods: {
-                removeItem : function () {
-                   this.toDoList.splice(0,1);
+            methods : {
+                removeItem : function (index) {
+                   this.toDoList.splice(index,1);
                 },
                 addNewItem : function() {
-                    
-
+                    if (this.newTask.trim() && this.newTask !== NaN ) {
+                        this.toDoList.push({
+                            testo: this.newTask,
+                            completed: false
+                        });
+                    }
+                    this.newTask = "";
                 },
-                 
+                keyDownFunc : function (event) {
+                    if(event.keyCode == 13 && this.newTask.trim()) {
+                        this.addNewItem();
+                    }
+                }
             },
     }
 );

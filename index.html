@@ -11,13 +11,13 @@
 </head>
 <body>
     <div id="root">
-        <input type="text" placeholder="Inserisci qui un nuovo task" v-model="newTask">
-        <button @clic="addNewItem">Aggiungi alla lista</button>
+        <input type="text" placeholder="Inserisci qui un nuovo task" v-model="newTask" @keyDown="keyDownFunc">
+        <button @click="addNewItem()">Aggiungi alla lista</button>
         <ol>
-            <li v-for="testo in toDoList">
-                {{ testo.testo }}
+            <li v-for="(item, index) in toDoList">
+                 {{ item.testo }} 
                 <i class="fas fa-times-circle"
-                @click="removeItem"
+                @click="removeItem(index)"
                 ></i>
             </li>
         </ol>
