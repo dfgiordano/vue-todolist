@@ -38,7 +38,7 @@ var app = new Vue (
                    this.toDoList.splice(index,1);
                 },
                 addNewItem : function() {
-                    if (this.newTask.trim() && this.newTask !== NaN ) {
+                    if (this.newTask.trim()) {
                         this.toDoList.push({
                             testo: this.newTask,
                             completed: false

@@ -11,7 +11,7 @@
 </head>
 <body>
     <div id="root">
-        <input type="text" placeholder="Inserisci qui un nuovo task" v-model="newTask" @keyDown="keyDownFunc">
+        <input type="text" placeholder="Inserisci qui un nuovo task" v-model="newTask" @keyDown.enter="addNewItem">
         <button @click="addNewItem()">Aggiungi alla lista</button>
         <ol>
             <li v-for="(item, index) in toDoList">
