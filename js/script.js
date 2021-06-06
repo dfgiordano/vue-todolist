@@ -38,7 +38,7 @@ var app = new Vue (
                    this.toDoList.splice(index,1);
                 },
                 addNewItem : function() {
-                    if (this.newTask.trim()) {
+                    if (this.newTask.trim().length > 0) {
                         this.toDoList.push({
                             testo: this.newTask,
                             completed: false
@@ -50,6 +50,9 @@ var app = new Vue (
                     if(event.keyCode == 13 && this.newTask.trim()) {
                         this.addNewItem();
                     }
+                },
+                toggleCompleted : function (index) {
+                    this.toDoList[index].completed = !this.toDoList[index].completed;
                 }
             },
     }
